@@ -1,0 +1,64 @@
+{
+  "name": "@builtwithjavascript/user-maven-scripts",
+  "version": "1.0.0",
+  "description": "Hook useUserMavenScripts to dynamically build client head scripts for User Maven app analytics",
+  "author": "Damiano Fusco",
+  "license": "MIT",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/builtwithjavascript/user-maven-scripts.git"
+  },
+  "bugs": {
+    "url": "https://github.com/builtwithjavascript/user-maven-scripts/issues"
+  },
+  "homepage": "https://github.com/builtwithjavascript/user-maven-scripts#readme",
+  "keywords": [
+    "usermaven, analytics, config, configuration, scripts, large scale apps, vue, react, svelte, nuxt, next, node"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build-types": "tsc src/main.ts --esModuleInterop --declaration --emitDeclarationOnly --outDir dist",
+    "build": "tsc --esModuleInterop && vite build && npm run build-types",
+    "pub": "npm publish --access public",
+    "test": "TESTING=true vitest run",
+    "test-watch": "TESTING=true vitest watch",
+    "pretty": "prettier -w \"./src/**/*.ts\"",
+    "version-patch": "npm version patch -m \"Patch version\"",
+    "preversion": "npm run test",
+    "version": "npm run build",
+    "postversion": "git push"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged \"./src/**/*.ts\""
+    }
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.11",
+    "@types/node": "^20.11.5",
+    "husky": "^8.0.3",
+    "jsdom": "^24.0.0",
+    "prettier": "^3.2.4",
+    "pretty-quick": "^4.0.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.12",
+    "vitest": "^1.2.1"
+  },
+  "files": [
+    "dist"
+  ],
+  "types": "dist/user-maven-scripts/index.d.ts",
+  "main": "dist/user-maven-scripts.umd.js",
+  "module": "dist/user-maven-scripts.es.js",
+  "exports": {
+    ".": {
+      "import": [
+        "./dist/user-maven-scripts.es.js"
+      ],
+      "require": "./dist/user-maven-scripts.umd.js"
+    },
+    "./package.json": "./package.json"
+  }
+}
