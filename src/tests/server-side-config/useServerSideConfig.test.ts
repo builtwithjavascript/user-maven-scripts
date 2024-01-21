@@ -18,6 +18,8 @@ describe('useUserMavenScripts', () => {
     // second result
     const result2 = results[1] as any
     expect(result2.type).toEqual('text/javascript')
-    expect(result2.innerHTML).toEqual('window.usermaven = window.usermaven || (function(){(window.usermavenQ = window.usermavenQ || []).push(arguments);});')
+    expect(result2.innerHTML).toEqual(
+      'window.usermaven = window.usermaven || (function(){(window.usermavenQ = window.usermavenQ || []).push(arguments);});'
+    )
   })
 })
