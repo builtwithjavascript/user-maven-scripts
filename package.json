@@ -1,6 +1,6 @@
 {
   "name": "@builtwithjavascript/user-maven-scripts",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Hook useUserMavenScripts to dynamically build client head scripts for User Maven app analytics",
   "author": "Damiano Fusco",
   "license": "MIT",
